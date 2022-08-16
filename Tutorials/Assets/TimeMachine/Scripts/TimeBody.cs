@@ -1,9 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TimeBody : MonoBehaviour
 {
+	[SerializeField] private RewindExplosion _explosion;
+
 	private bool _isRewinding = false;
 	private float _recordTime = 5f;
 
@@ -18,9 +19,9 @@ public class TimeBody : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Return))
+		if (Input.GetKeyDown(KeyCode.Space))
 			StartRewind();
-		if (Input.GetKeyUp(KeyCode.Return))
+		if (Input.GetKeyUp(KeyCode.Space))
 			StopRewind();
 	}
 
@@ -59,6 +60,7 @@ public class TimeBody : MonoBehaviour
 	{
 		if (_pointsInTime.Count > 0)
 		{
+			_explosion.Rewind();
 			PointInTime pointInTime = _pointsInTime[0];
 			transform.position = pointInTime._position;
 			transform.rotation = pointInTime._rotation;
@@ -68,6 +70,5 @@ public class TimeBody : MonoBehaviour
 		{
 			StopRewind();
 		}
-
 	}
 }
