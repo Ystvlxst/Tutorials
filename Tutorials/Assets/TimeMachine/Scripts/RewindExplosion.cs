@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class RewindExplosion : MonoBehaviour
@@ -6,6 +7,7 @@ public class RewindExplosion : MonoBehaviour
 
     private float _time;
     private float _elapsedTime;
+    private Coroutine _coroutine;
 
     private void Start()
     {
@@ -15,7 +17,10 @@ public class RewindExplosion : MonoBehaviour
 
     public void PlayExplosion()
     {
-        _explosion.Play();
+        if (_coroutine != null)
+            StopCoroutine(_coroutine);
+
+        _coroutine = StartCoroutine(Explosion());
     }
 
     public void Rewind()
@@ -24,5 +29,17 @@ public class RewindExplosion : MonoBehaviour
 
         _explosion.Simulate(time, true, true);
         _elapsedTime += Time.deltaTime;
+    }
+
+    private IEnumerator Explosion()
+    {
+        float elapsedTime = _elapsedTime;
+
+        while(elapsedTime < _explosion.main.duration)
+        {
+            elapsedTime += Time.deltaTime;
+            _explosion.Simulate(elapsedTime, true, true);
+            yield return null;
+        }
     }
 }

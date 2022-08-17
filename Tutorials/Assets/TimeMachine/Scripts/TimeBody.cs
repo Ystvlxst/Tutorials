@@ -19,9 +19,9 @@ public class TimeBody : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetMouseButtonDown(0))
 			StartRewind();
-		if (Input.GetKeyUp(KeyCode.Space))
+		if (Input.GetMouseButtonUp(0))
 			StopRewind();
 	}
 
@@ -47,12 +47,7 @@ public class TimeBody : MonoBehaviour
 
 	private void Record()
 	{
-		if (_pointsInTime.Count > Mathf.Round(_recordTime / Time.fixedDeltaTime))
-		{
-			_pointsInTime.RemoveAt(_pointsInTime.Count - 1);
-		}
-
-		_pointsInTime.Insert(0, new PointInTime(transform.position, transform.rotation));
+		_pointsInTime.Add(new PointInTime(transform.position, transform.rotation));
 	}
 
 
@@ -61,10 +56,10 @@ public class TimeBody : MonoBehaviour
 		if (_pointsInTime.Count > 0)
 		{
 			_explosion.Rewind();
-			PointInTime pointInTime = _pointsInTime[0];
+			PointInTime pointInTime = _pointsInTime[_pointsInTime.Count -1];
 			transform.position = pointInTime._position;
 			transform.rotation = pointInTime._rotation;
-			_pointsInTime.RemoveAt(0);
+			_pointsInTime.RemoveAt(_pointsInTime.Count -1);
 		}
 		else
 		{
