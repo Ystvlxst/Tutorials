@@ -3,28 +3,37 @@ using UnityEngine;
 
 public class TimeBodyRoot : MonoBehaviour
 {
-    [SerializeField] private List<TimeBody> _timeBodies;
+    [SerializeField] private List<Rewindable> _rewindables;
 
     private int _mouseButton = 0;
+    private bool _isRewinding = false;
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(_mouseButton))
-            StartRewind();
+            _isRewinding = true;
 
         if (Input.GetMouseButtonUp(_mouseButton))
-            StopRewind();
+            _isRewinding = false;
     }
 
-    private void StartRewind()
+    private void FixedUpdate()
     {
-        foreach (var timeBody in _timeBodies)
-            timeBody.StartRewind();
+        if (_isRewinding)
+            Rewind();
+        else
+            Record();
     }
 
-    private void StopRewind()
+    private void Rewind()
     {
-        foreach (var timeBody in _timeBodies)
-            timeBody.StopRewind();
+        foreach (var timeBody in _rewindables)
+            timeBody.Rewind();
+    }
+
+    private void Record()
+    {
+        foreach (var timeBody in _rewindables)
+            timeBody.Record();
     }
 }
