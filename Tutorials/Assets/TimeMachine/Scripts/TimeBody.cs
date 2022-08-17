@@ -26,13 +26,13 @@ public class TimeBody : MonoBehaviour
 	public void StartRewind()
 	{
 		_isRewinding = true;
-		_rigidBody.isKinematic = false;
+		_rigidBody.isKinematic = true;
 	}
 
 	public void StopRewind()
 	{
 		_isRewinding = false;
-		_rigidBody.isKinematic = true;
+		_rigidBody.isKinematic = false;
 	}
 
 	private void Record()
