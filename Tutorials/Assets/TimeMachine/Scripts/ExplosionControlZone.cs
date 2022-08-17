@@ -6,6 +6,9 @@ public class ExplosionControlZone : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out TimeBody timeBody))
+        {
             _explosion.PlayExplosion();
+            gameObject.SetActive(false);
+        }
     }
 }
