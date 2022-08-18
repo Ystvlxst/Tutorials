@@ -6,7 +6,7 @@ public class ExplosionZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out TimeBody timeBody))
+        if (other.TryGetComponent(out Player timeBody))
         {
             _rewindExplosion.PlayExplosion();
             gameObject.SetActive(false);
