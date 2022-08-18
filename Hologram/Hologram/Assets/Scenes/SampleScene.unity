@@ -397,7 +397,7 @@ PrefabInstance:
     - target: {fileID: -2552386993622192741, guid: 44ede5b90e3934314b4fe5745ec73824, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f4e213716764e48b2bec000968000f53, type: 2}
+      objectReference: {fileID: 2100000, guid: 515e5259072e8476b9b59f6df9e96acb, type: 2}
     - target: {fileID: 919132149155446097, guid: 44ede5b90e3934314b4fe5745ec73824, type: 3}
       propertyPath: m_Name
       value: AustronavtHologram
@@ -413,7 +413,7 @@ PrefabInstance:
     - target: {fileID: 2520484946579192360, guid: 44ede5b90e3934314b4fe5745ec73824, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f4e213716764e48b2bec000968000f53, type: 2}
+      objectReference: {fileID: 2100000, guid: 515e5259072e8476b9b59f6df9e96acb, type: 2}
     - target: {fileID: 2520484946579192360, guid: 44ede5b90e3934314b4fe5745ec73824, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
@@ -437,7 +437,7 @@ PrefabInstance:
     - target: {fileID: 7307535121243759794, guid: 44ede5b90e3934314b4fe5745ec73824, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f4e213716764e48b2bec000968000f53, type: 2}
+      objectReference: {fileID: 2100000, guid: 515e5259072e8476b9b59f6df9e96acb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44ede5b90e3934314b4fe5745ec73824, type: 3}
 --- !u!1 &616515349 stripped
