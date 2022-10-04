@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/OverlapSphere/Other/SampleScene.unity
+- path: Assets/Ragdoll/Ragdoll.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
