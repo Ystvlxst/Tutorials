@@ -6,6 +6,10 @@ public class OverlapSphere : MonoBehaviour
     [SerializeField] private float _force;
     [SerializeField] private float _radiusDamage;
     [SerializeField] private LayerMask _layerMask;
+    [SerializeField] private ParticleSystem _explosion;
+    [SerializeField] private TimeController _timeController;
+    [SerializeField] private PhysicalFall[] _physicalFall;
+    [SerializeField] private GameObject _bomb;
 
     private void Update()
     {
@@ -21,8 +25,16 @@ public class OverlapSphere : MonoBehaviour
         {
             if (collider.TryGetComponent(out Rigidbody rigidbody))
             {
+                _bomb.SetActive(false);
+                _explosion.Play();
+
                 Vector3 direction = (collider.transform.position - transform.position).normalized;
                 rigidbody.AddForce(direction * _force, ForceMode.Impulse);
+
+                _timeController.DoSlowMotion();
+
+                foreach (var fall in _physicalFall)
+                    fall.Hit();
             }
         }
     }

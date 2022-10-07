@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Ragdoll/Ragdoll.unity
+- path: Assets/SlowMotion/SlowMotion.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
